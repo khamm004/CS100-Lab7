@@ -11,8 +11,12 @@ class Add : public Base {
 		Base* right;
 	public:
 		Add();
+		~Add(){
+			delete left;
+			delete right;
+		}
 		Add(Base* lh, Base* rh){left=lh; right=rh;};
-		double evaluate(){return left->evaluate()+right->evaluate();}
+		double evaluate(){ return left->evaluate()+right->evaluate();}
 		string stringify() {return "(" + left->stringify() + "+" + right->stringify() + ")";}
 };
 #endif

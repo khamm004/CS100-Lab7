@@ -12,6 +12,10 @@ class Pow : public Base {
 		Base* right;
 	public: 
 		Pow();
+		~Pow(){
+                        delete left;
+                        delete right;
+                }
 		Pow(Base* lh, Base* rh) {left =lh; right=rh;}
 		double evaluate(){return pow(left->evaluate(), right->evaluate());}
 		string stringify() {return "(" + left->stringify() + "**" + right->stringify() + ")";}

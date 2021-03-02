@@ -11,6 +11,10 @@ class Sub : public Base {
 		Base* right;
 	public:
 		Sub();
+		~Sub(){
+                        delete left;
+                        delete right;
+                }
 		Sub(Base* lh, Base* rh){left=lh; right=rh;}
 		double evaluate(){return left->evaluate()-right->evaluate();}
 		string stringify() {return "(" + left->stringify() + "-" + right->stringify() + ")";}

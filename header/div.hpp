@@ -9,7 +9,10 @@ class Div : public Base {
         Base* right;
     public:
         Div(Base* lt, Base* rt) : Base() {left = lt; right = rt;}
-
+	~Div(){
+                        delete left;
+                        delete right;
+                }
         virtual double evaluate() { return (left->evaluate())/(right->evaluate()); }
         virtual std::string stringify() { return '(' + left->stringify() + '/' + right->stringify() + ')'; }
 };

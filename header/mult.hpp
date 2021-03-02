@@ -9,8 +9,11 @@ class Mult : public Base {
 	Base* right;
     public:
         Mult(Base* lt, Base* rt) : Base() {left = lt; right = rt;}
-
-        virtual double evaluate() { return (left->evaluate())*(right->evaluate()); }
+	~Mult(){
+		delete left;
+		delete right;
+	}
+        virtual double evaluate() {return (left->evaluate())*(right->evaluate()); }
         virtual std::string stringify() { return '(' + left->stringify() + '*' + right->stringify() + ')'; }
 };
 
