@@ -15,6 +15,8 @@ int main(int argc, char** argv){
 		std::cout << output->stringify() << endl;
 		std::cout << output->evaluate() << endl;
 	}
+	delete f;
+	delete output;
 	return 0;
 }
 
